@@ -5,9 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.conexa.starwars.client.dto.PeopleNameResponseDto;
-import com.conexa.starwars.client.dto.PeopleResponseDto;
-import com.conexa.starwars.client.dto.PersonResponseDto;
+import com.conexa.starwars.dto.FilmResponseDto;
+import com.conexa.starwars.dto.PeopleNameResponseDto;
+import com.conexa.starwars.dto.PersonResponseDto;
+import com.conexa.starwars.dto.ResponseDto;
+import com.conexa.starwars.dto.StarshipResponseDto;
+import com.conexa.starwars.dto.VehicleResponseDto;
 
 /**
  * Cliente del servicio de StarWars
@@ -18,7 +21,7 @@ import com.conexa.starwars.client.dto.PersonResponseDto;
 public interface StarWarsClient {
 
 	@GetMapping("/people")
-	PeopleResponseDto getPersonas(@RequestParam("page") int page, @RequestParam("limit") int limit);
+	ResponseDto getPersonas(@RequestParam("page") int page, @RequestParam("limit") int limit);
 	
 	@GetMapping("/people")
 	PeopleNameResponseDto getPersonaByName(@RequestParam("name") String name);
@@ -26,5 +29,22 @@ public interface StarWarsClient {
 	@GetMapping("/people/{id}")
 	PersonResponseDto getPersonaById(@PathVariable("id") String id);
 
-	// Métodos similares para films, starships y vehicles
+	@GetMapping("/starships")
+	ResponseDto getStarships(@RequestParam("page") int page, @RequestParam("limit") int limit);
+
+    @GetMapping("/starships/{id}")
+    StarshipResponseDto getStarshipById(@PathVariable("id") String id);
+    
+    @GetMapping("/vehicles")
+	ResponseDto getVehicles(@RequestParam("page") int page, @RequestParam("limit") int limit);
+
+    @GetMapping("/vehicles/{id}")
+    VehicleResponseDto getVehiclesById(@PathVariable("id") String id);
+    
+    @GetMapping("/films")
+	ResponseDto getFilms(@RequestParam("page") int page, @RequestParam("limit") int limit);
+
+    @GetMapping("/films/{id}")
+    FilmResponseDto getFilmsById(@PathVariable("id") String id);
+
 }
