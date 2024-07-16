@@ -5,12 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.conexa.starwars.dto.FilmResponseDto;
 import com.conexa.starwars.dto.PeopleNameResponseDto;
 import com.conexa.starwars.dto.PersonResponseDto;
 import com.conexa.starwars.dto.ResponseDto;
 import com.conexa.starwars.dto.StarshipResponseDto;
 import com.conexa.starwars.dto.VehicleResponseDto;
+import com.conexa.starwars.dto.FilmResponseDto;
+import com.conexa.starwars.dto.FilmsResponseDto;
 
 /**
  * Cliente del servicio de StarWars
@@ -42,7 +43,7 @@ public interface StarWarsClient {
     VehicleResponseDto getVehiclesById(@PathVariable("id") String id);
     
     @GetMapping("/films")
-	ResponseDto getFilms(@RequestParam("page") int page, @RequestParam("limit") int limit);
+    FilmsResponseDto getFilms(@RequestParam("page") int page, @RequestParam("limit") int limit);
 
     @GetMapping("/films/{id}")
     FilmResponseDto getFilmsById(@PathVariable("id") String id);

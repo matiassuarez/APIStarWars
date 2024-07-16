@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.conexa.starwars.dto.StarshipDto;
 import com.conexa.starwars.dto.ResponseDto.ResultDto;
+import com.conexa.starwars.dto.StarshipResponseDto.StarshipDto;
 import com.conexa.starwars.service.StarshipService;
 
 @RestController

@@ -2,13 +2,15 @@ package com.conexa.starwars.dto;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class FilmResponseDto {
-	private String message;
-    private FilmResultDto result;
+public class FilmsResponseDto {
+    private String message;
+    private List<FilmsResultDto> result;
     
     @Data
-    public static class FilmResultDto {
+    public static class FilmsResultDto {
         private String description;
         private String _id;
         private String uid;
@@ -16,3 +18,4 @@ public class FilmResponseDto {
         private FilmDto properties;
     }
 }
+

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.conexa.starwars.dto.FilmDto;
-import com.conexa.starwars.dto.ResponseDto.ResultDto;
+import com.conexa.starwars.dto.FilmResponseDto.FilmResultDto;
+import com.conexa.starwars.dto.FilmsResponseDto.FilmsResultDto;
 import com.conexa.starwars.service.FilmService;
 
 @RestController
@@ -21,12 +21,12 @@ public class FilmsController {
 	private FilmService filmService;
 	
 	@GetMapping("")
-    public List<ResultDto> getFilms(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
+    public List<FilmsResultDto> getFilms(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
         return filmService.getFilms(page, limit);
     }
 
     @GetMapping("{id}")
-    public FilmDto getFilmById(@PathVariable String id) {
+    public FilmResultDto getFilmById(@PathVariable String id) {
         return filmService.getFilmById(id);
     }
 

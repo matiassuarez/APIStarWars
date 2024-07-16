@@ -1,6 +1,9 @@
 package com.conexa.starwars.dto;
 
 import java.util.List;
+
+import com.conexa.starwars.dto.PersonResponseDto.PersonDto;
+
 import lombok.Data;
 
 @Data

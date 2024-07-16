@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.conexa.starwars.client.StarWarsClient;
-import com.conexa.starwars.dto.PeopleDto;
 import com.conexa.starwars.dto.PeopleNameResponseDto;
-import com.conexa.starwars.dto.PersonDto;
 import com.conexa.starwars.dto.PersonResponseDto;
+import com.conexa.starwars.dto.PersonResponseDto.PersonDto;
 import com.conexa.starwars.dto.ResponseDto;
 import com.conexa.starwars.dto.PeopleNameResponseDto.ResultNameDto;
 import com.conexa.starwars.dto.ResponseDto.ResultDto;

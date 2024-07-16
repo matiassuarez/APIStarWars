@@ -7,10 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.conexa.starwars.client.StarWarsClient;
 import com.conexa.starwars.dto.ResponseDto;
-import com.conexa.starwars.dto.StarshipDto;
-import com.conexa.starwars.dto.StarshipResponseDto;
-import com.conexa.starwars.dto.VehicleDto;
 import com.conexa.starwars.dto.VehicleResponseDto;
+import com.conexa.starwars.dto.VehicleResponseDto.VehicleDto;
 import com.conexa.starwars.dto.ResponseDto.ResultDto;
 
 @Service

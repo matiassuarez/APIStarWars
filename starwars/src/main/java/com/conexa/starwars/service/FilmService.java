@@ -6,23 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.conexa.starwars.client.StarWarsClient;
-import com.conexa.starwars.dto.FilmDto;
 import com.conexa.starwars.dto.FilmResponseDto;
-import com.conexa.starwars.dto.ResponseDto;
-import com.conexa.starwars.dto.ResponseDto.ResultDto;
+import com.conexa.starwars.dto.FilmResponseDto.FilmResultDto;
+import com.conexa.starwars.dto.FilmsResponseDto.FilmsResultDto;
+import com.conexa.starwars.dto.FilmsResponseDto;
 
 @Service
 public class FilmService {
 	@Autowired
     private StarWarsClient starWarsClient;
 	
-	public List<ResultDto> getFilms(int page, int limit) {
-		ResponseDto filmsResponseDto = starWarsClient.getFilms(page, limit);
-		return filmsResponseDto.getResults();
+	public List<FilmsResultDto> getFilms(int page, int limit) {
+		FilmsResponseDto filmsResponseDto = starWarsClient.getFilms(page, limit);
+		return filmsResponseDto.getResult();
     }
 
-    public FilmDto getFilmById(String id) {
+    public FilmResultDto getFilmById(String id) {
     	FilmResponseDto filmResponseDto = starWarsClient.getFilmsById(id);
-        return filmResponseDto.getResult().getProperties();
+        return filmResponseDto.getResult();
     }
 }
