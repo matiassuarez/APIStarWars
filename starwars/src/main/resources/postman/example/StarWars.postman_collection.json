@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "7df32a70-30c1-446d-ae8a-aa84c5076f9f",
+		"name": "StarWars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20906111"
+	},
+	"item": [
+		{
+			"name": "/people/{id}",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "/starships/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/api/starwars/starships/3"
+			},
+			"response": []
+		},
+		{
+			"name": "/vehicles/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/api/starwars/vehicles/3"
+			},
+			"response": []
+		},
+		{
+			"name": "/films/{id}",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/api/starwars/films/3"
+			},
+			"response": []
+		},
+		{
+			"name": "/people",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/starwars/people?page=3&name=C-3PO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"starwars",
+						"people"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "name",
+							"value": "C-3PO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/films",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/starwars/people?page=3&name=C-3PO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"starwars",
+						"people"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "name",
+							"value": "C-3PO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/starships",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/starwars/starships?page=1&limit=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"starwars",
+						"starships"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/vehicles",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/starwars/vehicles?page=1&limit=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"starwars",
+						"vehicles"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/people/search",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "starwars",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/starwars/people?page=3&name=C-3PO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"starwars",
+						"people"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						},
+						{
+							"key": "name",
+							"value": "C-3PO"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
