@@ -13,7 +13,7 @@ import com.conexa.starwars.dto.ResponseDto.ResultDto;
 
 /**
  * Servicio para gestionar las operaciones relacionadas a los recursos vehiculos
- * en la API de Star Wars.
+ * en la API de Star Wars..
  * @author MSuarez
  */
 @Service

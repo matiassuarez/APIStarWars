@@ -1,16 +1,15 @@
 package com.conexa.starwars.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.conexa.starwars.dto.PersonResponseDto.PersonDto;
-import com.conexa.starwars.dto.ResponseDto.ResultDto;
+import com.conexa.starwars.exception.ResourceNotFoundException;
 import com.conexa.starwars.service.PeopleService;
 
 @RestController
@@ -20,18 +19,30 @@ public class PeopleController {
     private PeopleService peopleService;
 	
     @GetMapping("")
-    public List<ResultDto> getPeople(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
-        return peopleService.getPersonas(page, limit);
+    public ResponseEntity<Object> getPeople(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
+    	try {
+    		return new ResponseEntity<>(peopleService.getPersonas(page, limit), HttpStatus.OK);
+    	} catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
     }
     
     @GetMapping("/search")
-    public PersonDto getPeopleByname(@RequestParam String name) {
-        return peopleService.getPersonaByName(name);
+    public ResponseEntity<Object> getPeopleByname(@RequestParam String name) {
+    	try {
+    		return new ResponseEntity<>(peopleService.getPersonaByName(name), HttpStatus.OK);
+    	} catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>("Persona no encontrada", HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("{id}")
-    public PersonDto getPersonById(@PathVariable String id) {
-        return peopleService.getPersonaById(id);
+    public ResponseEntity<Object> getPersonById(@PathVariable String id) {
+    	try {
+    		return new ResponseEntity<>(peopleService.getPersonaById(id), HttpStatus.OK);
+    	} catch (ResourceNotFoundException e) {
+            return new ResponseEntity<>("Persona no encontrada", HttpStatus.NOT_FOUND);
+        }
     }
 
 }
