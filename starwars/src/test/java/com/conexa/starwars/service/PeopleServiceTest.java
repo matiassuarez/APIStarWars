@@ -1,56 +1,39 @@
 package com.conexa.starwars.service;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.conexa.starwars.client.StarWarsClient;
+import com.conexa.starwars.dto.PersonResponseDto;
 import com.conexa.starwars.dto.PersonResponseDto.PersonDto;
 import com.conexa.starwars.dto.ResponseDto.ResultDto;
+import com.conexa.starwars.dto.ResponseDto;
 
-import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
+@SpringBootTest
 public class PeopleServiceTest {
 
-    @Mock
+    @Autowired
     private StarWarsClient starWarsClient;
 
-    @InjectMocks
+    @Autowired
     private PeopleService peopleService;
 
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
     @Test
-    void testGetPeople() {
-        // Arrange
-        List<ResultDto> mockResults = Collections.singletonList(new ResultDto());
-        when(starWarsClient.getPersonas(1, 3).getResults()).thenReturn(mockResults);
-
-        // Act
-        List<ResultDto> serviceResponse = peopleService.getPersonas(1, 3);
-
-        // Assert
-        assertEquals(mockResults, serviceResponse);
-    }
-
-    @Test
-    void testGetPersonById() {
-        // Arrange
-        PersonDto mockPerson = new PersonDto();
-        when(starWarsClient.getPersonaById("2").getResult().getProperties()).thenReturn(mockPerson);
-
-        // Act
+	public void testGetPeople() {
+        List<ResultDto> mockResponse = starWarsClient.getPersonas(1, 3).getResults();
+	    List<ResultDto> serviceResponse = peopleService.getPersonas(1, 3);
+	    assertEquals(mockResponse, serviceResponse);
+	}
+	
+	@Test 
+	public void testGetPersonById() { 
+		PersonDto mockResponse = starWarsClient.getPersonaById("2").getResult().getProperties();
         PersonDto serviceResponse = peopleService.getPersonaById("2");
-
-        // Assert
-        assertEquals(mockPerson, serviceResponse);
-    }
+        assertEquals(mockResponse, serviceResponse);
+	}
 }

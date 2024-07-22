@@ -16,7 +16,7 @@ import com.conexa.starwars.dto.StarshipResponseDto.ResultDto;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StarshipServiceTestUnit {
+public class StarshipServiceUnitTest {
 
     @Mock
     private StarWarsClient starWarsClient; // Mock del cliente
