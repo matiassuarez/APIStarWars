@@ -8,6 +8,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity
 public class SecurityConfig {
 
+	/**
+     * Configuracion de seguridad.
+     * 
+     * @param http HttpSecurity configura la seguridad basada en web
+     * @throws Exception atrapa error durante la configuracion de seguridad
+     */
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()

@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
     /**
-     * Maneja la excepción {@link RecursoNoEncontradoException}.
+     * Maneja la excepcion {@link RecursoNoEncontradoException}.
      *
-     * @param ex la excepción lanzada.
-     * @return una respuesta con el código de estado HTTP 404 y un mensaje de error.
+     * @param ex excepcion lanzada.
+     * @return respuesta con el codigo de estado HTTP 404 y un mensaje de error.
      */
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<String> handleRecursoNoEncontradoException(ResourceNotFoundException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    // Puedes agregar más métodos para manejar otras excepciones aquí
 }

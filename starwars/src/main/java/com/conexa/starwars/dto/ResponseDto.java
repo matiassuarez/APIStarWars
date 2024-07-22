@@ -4,6 +4,9 @@ import java.util.List;
 
 import lombok.Data;
 
+/**
+ * DTO para representar una respuesta generica con paginacion.
+ */
 @Data
 public class ResponseDto {
 	private int total_records;
@@ -12,6 +15,9 @@ public class ResponseDto {
     private String previous;
     private List<ResultDto> results;
     
+    /**
+     * DTO para representar un resultado en la respuesta paginada.
+     */
     @Data
     public static class ResultDto {
     	private String uid;

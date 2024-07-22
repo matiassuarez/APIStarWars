@@ -9,7 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class CustomErrorController implements ErrorController {
-    @RequestMapping("/error")
+    
+	 /**
+     * Endpoint para manejar errores y redirigir al usuario a la pagina principal.
+     *
+     * @param request HttpServletRequest contiene la solicitud del cliente
+     * @return ModelAndView redirige a la pagina principal
+     */
+	@RequestMapping("/error")
     public ModelAndView handleError(HttpServletRequest request) {
         return new ModelAndView("redirect:/");
     }

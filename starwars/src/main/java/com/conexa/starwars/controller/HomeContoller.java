@@ -17,6 +17,11 @@ import jakarta.servlet.http.HttpServletResponse;
 @RequestMapping("/")
 class HomeContoller {
 
+	/**
+     * Endpoint de la raiz para devolver una pagina HTML.
+     *
+     * @return Contenido HTML de la página de inicio
+     */
 	@GetMapping("")
 	public String index() {
 	    return """
@@ -62,14 +67,19 @@ class HomeContoller {
         """;
 	}
 
-    
+	/**
+     * Endpoint para descargar el archivo coleccion de Postman.
+     *
+     * @param response HttpServletResponse envia el archivo al cliente
+     * @throws IOException atrapa error durante la lectura o escritura del archivo
+     */
 	@GetMapping("/postman")
 	public void downloadPostman(HttpServletResponse response) throws IOException {
-        // Usa la ruta relativa desde src/main/resources
+        // Usa la ruta src/main/resources
         ClassPathResource resource = new ClassPathResource("postman/example/StarWars.postman_collection.json");
         File file = resource.getFile();
         
-        response.setContentType("application/json"); // Tipo de contenido JSON
+        response.setContentType("application/json"); 
         response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName());
         response.setContentLength((int) file.length());
 
@@ -82,7 +92,7 @@ class HomeContoller {
                 outStream.write(buffer, 0, bytesRead);
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Registra el error para depuración
+            e.printStackTrace(); 
         }
     }
 }

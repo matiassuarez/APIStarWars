@@ -6,6 +6,9 @@ import com.conexa.starwars.dto.PersonResponseDto.PersonDto;
 
 import lombok.Data;
 
+/**
+ * DTO para representar la respuesta de una solicitud de personas filtradas por nombre.
+ */
 @Data
 public class PeopleNameResponseDto {
 	private int total_records;
@@ -14,6 +17,9 @@ public class PeopleNameResponseDto {
     private String previous;
     private List<ResultNameDto> result;
     
+    /**
+     * DTO para representar el resultado de la solicitud de personas filtradas por nombre.
+     */
     @Data
     public static class ResultNameDto {
         private PersonDto properties;

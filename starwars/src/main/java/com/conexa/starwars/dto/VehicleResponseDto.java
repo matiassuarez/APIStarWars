@@ -4,15 +4,24 @@ import java.util.List;
 
 import lombok.Data;
 
+/**
+ * DTO para representar la respuesta de una solicitud de vehiculo.
+ */
 @Data
 public class VehicleResponseDto {
 	private ResultDto result;
     
+	/**
+     * DTO para representar el resultado de la solicitud de vehiculo.
+     */
     @Data
     public static class ResultDto {
         private VehicleDto properties;
     }
     
+    /**
+     * DTO para representar las propiedades de un vehiculo.
+     */
     @Data
     public static class VehicleDto {
     	private String name;

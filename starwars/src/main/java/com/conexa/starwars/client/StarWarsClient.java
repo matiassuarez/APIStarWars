@@ -16,7 +16,7 @@ import com.conexa.starwars.dto.FilmsResponseDto;
 /**
  * Cliente del servicio de StarWars
  *
- * @author esteban
+ * @author MSuarez
  */
 @FeignClient(name = "swapi", url = "https://www.swapi.tech/api")
 public interface StarWarsClient {

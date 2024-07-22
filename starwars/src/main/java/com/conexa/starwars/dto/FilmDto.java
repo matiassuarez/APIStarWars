@@ -4,6 +4,9 @@ import java.util.List;
 
 import lombok.Data;
 
+/**
+ * DTO para representar los detalles de una pelicula de Star Wars.
+ */
 @Data
 public class FilmDto {
     private String title;

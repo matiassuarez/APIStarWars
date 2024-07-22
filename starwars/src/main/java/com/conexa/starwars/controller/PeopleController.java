@@ -18,6 +18,13 @@ public class PeopleController {
 	@Autowired
     private PeopleService peopleService;
 	
+	/**
+     * Endpoint para obtener una lista de personas con paginación.
+     *
+     * @param page  Numero de la pagina (por defecto 1)
+     * @param limit Cantidad resultados por pagina (por defecto 10)
+     * @return ResponseEntity lista de personas y el estado HTTP
+     */
     @GetMapping("")
     public ResponseEntity<Object> getPeople(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
     	try {
@@ -27,6 +34,12 @@ public class PeopleController {
         }
     }
     
+    /**
+     * Endpoint para buscar personas por ID.
+     *
+     * @param name Nombre de la persona a buscar
+     * @return ResponseEntity lista de personas encontradas y el estado HTTP
+     */
     @GetMapping("/search")
     public ResponseEntity<Object> getPeopleByname(@RequestParam String name) {
     	try {
@@ -36,6 +49,12 @@ public class PeopleController {
         }
     }
 
+    /**
+     * Endpoint para obtener una persona por ID.
+     *
+     * @param id ID de la persona
+     * @return ResponseEntity con el DTO de la persona y el estado HTTP
+     */
     @GetMapping("{id}")
     public ResponseEntity<Object> getPersonById(@PathVariable String id) {
     	try {

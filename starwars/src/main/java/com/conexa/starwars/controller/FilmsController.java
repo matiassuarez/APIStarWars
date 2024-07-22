@@ -19,6 +19,13 @@ public class FilmsController {
 	@Autowired
 	private FilmService filmService;
 	
+	/**
+     * Endpoint para obtener una lista de peliculas con paginacion.
+     *
+     * @param page  Numero de la pagina (por defecto 1)
+     * @param limit Cantidad resultados por pagina (por defecto 10)
+     * @return ResponseEntity lista de peliculas y el estado HTTP 
+     */
 	@GetMapping("")
     public ResponseEntity<Object> getFilms(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
 		try {
@@ -28,6 +35,12 @@ public class FilmsController {
         }
     }
 
+	/**
+     * Endpoint para obtener una pelicula por su ID.
+     *
+     * @param id ID de la pelicula
+     * @return ResponseEntity con el DTO de la pelicula y el estado HTTP
+     */
     @GetMapping("{id}")
     public ResponseEntity<Object> getFilmById(@PathVariable String id) {
     	try {

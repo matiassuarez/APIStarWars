@@ -19,7 +19,14 @@ public class VehiclesController {
 
 	@Autowired
     private VehiclesService vehiclesService;
-	
+
+	/**
+     * Endpoint para obtener una lista de vehiculos con paginacion.
+     *
+     * @param page  Numero de la pagina (por defecto 1)
+     * @param limit Cantidad resultados por pagina (por defecto 10)
+     * @return ResponseEntity lista de vehiculos y el estado HTTP 
+     */
     @GetMapping("")
     ResponseEntity<Object> getVehicles(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
     	try {
@@ -29,6 +36,12 @@ public class VehiclesController {
         }
     }
     
+    /**
+     * Endpoint para obtener un vehiculo por su ID.
+     *
+     * @param id ID del vehiculo
+     * @return ResponseEntity con el DTO del vehiculo y el estado HTTP correspondiente
+     */
     @GetMapping("{id}")
     public ResponseEntity<Object> getVehiclesById(@PathVariable("id") String id) {
     	 try {

@@ -4,15 +4,24 @@ import java.util.List;
 
 import lombok.Data;
 
+/**
+ * DTO para representar la respuesta de una solicitud de nave espacial.
+ */
 @Data
 public class StarshipResponseDto {
 	private ResultDto result;
     
+	/**
+     * DTO para representar el resultado de la solicitud de nave espacial.
+     */
     @Data
     public static class ResultDto {
         private StarshipDto properties;
     }
     
+    /**
+     * DTO para representar las propiedades de una nave espacial.
+     */
     @Data
     public static class StarshipDto {
         private String name;
